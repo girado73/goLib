@@ -105,6 +105,20 @@ func Search[T comparable](array []T, value T) int {
 	return -1
 }
 
+// Replace replaces the first occurrence of a value in an array with a new value.
+// Returns the modified array.
+// When not found, returns the original array.
+func Replace[T comparable](array []T, oldValue T, newValue T) []T {
+	searchIndex := Search(array, oldValue)
+
+	if searchIndex == -1 {
+		return array // Value not found, return original array
+	} else {
+		array[searchIndex] = newValue
+		return array
+	}
+}
+
 // SearchSorted finds the index of a value in a sorted array.
 // Use for sorted arrays.
 // Uses binary search algorithm for efficiency.

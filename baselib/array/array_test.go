@@ -129,6 +129,32 @@ func TestSearch(t *testing.T) {
 	}
 }
 
+func TestReplace(t *testing.T) {
+	arr := []int{1, 2, 3, 4, 5}
+	value := 3
+	newValue := 99
+
+	got := Replace(arr, value, newValue)
+	want := []int{1, 2, 99, 4, 5}
+
+	if !Compare(got, want) {
+		t.Errorf("Replace() = %v, want %v", got, want)
+	}
+}
+
+func TestReplaceNotFound(t *testing.T) {
+	arr := []int{1, 2, 3, 4, 5}
+	value := 99
+	newValue := 3
+
+	got := Replace(arr, value, newValue)
+	want := []int{1, 2, 3, 4, 5}
+
+	if !Compare(got, want) {
+		t.Errorf("Replace() = %v, want %v", got, want)
+	}
+}
+
 func TestPop(t *testing.T) {
 	got, gotArr := Pop([]int{1, 2, 3, 4, 5})
 	want := 5
