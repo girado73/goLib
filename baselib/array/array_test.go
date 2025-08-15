@@ -234,3 +234,13 @@ func TestDifference(t *testing.T) {
 		t.Errorf("Difference() = %v, want %v", got, want)
 	}
 }
+
+func TestToString(t *testing.T) {
+	arr := []string{"Hello", "World", "Go"}
+	got := ToString(arr, ", ")
+	want := "Hello, World, Go"
+
+	if got != want {
+		t.Errorf("ToString() = %s, want %s", got, want)
+	}
+}

@@ -4,6 +4,7 @@ package array
 
 import (
 	"cmp"
+	"fmt"
 	"math/rand"
 	"slices"
 	"sync"
@@ -219,4 +220,23 @@ func Compare[T comparable](array1, array2 []T) bool {
 		}
 	}
 	return true
+}
+
+func ToString[T any](array []T, seperator string) string {
+	if len(array) == 0 {
+		return ""
+	}
+
+	lenArray := len(array)
+
+	returnedString := ""
+	for i, x := range array {
+		if i == lenArray-1 {
+			returnedString += fmt.Sprintf("%v", x)
+		} else {
+			returnedString += fmt.Sprintf("%v%s", x, seperator)
+		}
+	}
+
+	return returnedString
 }
